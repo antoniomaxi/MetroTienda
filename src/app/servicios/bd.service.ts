@@ -54,20 +54,16 @@ export class BdService {
     let z;
     if (arriba === null) {
       z = this.listaProductos.push({
-        cuerpo: producto.cuerpo,
+        nombre: producto.nombre,
         fecha: fecha.toDateString(),
-        numFeliz: 0,
-        numTriste: 0,
         imagenURL: '',
         usuario: temporal
       });
     }
     else {
       z = this.listaProductos.push({
-        cuerpo: producto.cuerpo,
+        nombre: producto.nombre,
         fecha: fecha.toDateString(),
-        numFeliz: 0,
-        numTriste: 0,
         imagenURL: arriba.url,
         usuario: temporal
       });
@@ -86,9 +82,6 @@ export class BdService {
     return usuario;
   }
 
-  sumarFeliz(producto) {
-    this.fb.list('productos').update(producto.$id, {numFeliz: (producto.numFeliz + 1)});
-  }
 
   eliminarProducto(producto: Producto, usuario: Usuario) {
     let aux: String[];
@@ -122,15 +115,6 @@ export class BdService {
     return this.listaProductos;
   }
 
-  sumarTriste(producto) {
-    this.fb.list('productos').set(producto.$id, {
-      cuerpo: producto.cuerpo,
-      numTriste: (producto.numTriste + 1),
-      fecha: producto.fecha,
-      imagenURL: producto.imagenURL,
-      usuario: producto.usuario,
-      numFeliz: producto.numFeliz
-    });
-  }
+
 
 }
