@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from './usuario';
-import {Cuento} from '../cuento/cuento';
+import { Producto } from '../producto/producto';
 import { AngularFireAuth } from 'angularfire2/auth';
-import {CuentoComponent} from '../cuento/cuento.component';
+import { ProductoComponent } from '../producto/producto.component';
 import {BdService} from '../servicios/bd.service';
 
 

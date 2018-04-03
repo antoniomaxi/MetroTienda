@@ -2,38 +2,51 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <header>
+<<<<<<< HEAD:src/app/cuento/cuento.component.html
   <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido la MetroTienda</h1>
   <h1 *ngIf="borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Estos son tus cuentos, {{usuario.nombre}}.</h1>
+=======
+  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido a MetroTiendaApp</h1>
+  <h1 *ngIf="borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Estos son tus productos, {{usuario.nombre}}.</h1>
+>>>>>>> PapiRich:src/app/producto/producto.component.html
 </header>
-<div class="col s12 m7" *ngFor="let cuento of cuentos">
+<div class="col s12 m7" *ngFor="let producto of productos">
   <div class="card horizontal">
     <div class="card-image">
-      <img *ngIf="cuento.imagenURL" src="{{cuento.imagenURL}}">
+      <img *ngIf="producto.imagenURL" src="{{producto.imagenURL}}">
     </div>
     <div class="card-stacked">
       <div class="card-content">
-        <p>{{cuento.cuerpo}}</p>
+        <p>{{producto.cuerpo}}</p>
       </div>
       <table>
         <tr>
+<<<<<<< HEAD:src/app/cuento/cuento.component.html
           <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(cuento)">Borrar</button>
+=======
+          <button type="button" class="btn btn-primary" (click)="sumarFeliz(producto)">
+            <i class="material-icons">thumb_up</i> {{producto.numFeliz}}</button>
+          <button type="button" class="btn btn-primary" (click)="sumarTriste(producto)">
+            <i class="material-icons">thumb_down</i> {{producto.numTriste}}</button>
+          <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(producto)">Borrar</button>
+>>>>>>> PapiRich:src/app/producto/producto.component.html
         </tr>
         <tr>
-          <p *ngIf = "cuento.usuario" class="card-content">{{cuento.usuario.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{cuento.fecha}}</p>
+          <p *ngIf = "producto.usuario" class="card-content">{{producto.usuario.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{producto.fecha}}</p>
         </tr>
       </table>
     </div>
   </div>
 </div>
-<form #nuevoCuento = "ngForm" (ngSubmit)="anadirCuento(nuevoCuento)" >
+<form #nuevoProducto = "ngForm" (ngSubmit)="anadirProducto(nuevoProducto)" >
   <div class="form-group">
-    <label *ngIf = "usuario&&!borrar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Echa El Cuento Aquí: </label>
+    <label *ngIf = "usuario&&!borrar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre del producto: </label>
     <label *ngIf = "!usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se requiere autentificación: </label>
     <div class="col-6">
       <textarea *ngIf="usuario&&!borrar" class="form-control-lg" rows="6" name="cuerpo" required minlength="1" maxlength="1000" #cuerpo='ngModel' [(ngModel)] ="enviar.cuerpo"></textarea>
     </div>
     <button *ngIf = "usuario&&!borrar" type="submit" class="btn btn-primary">Enviar</button>
-    <button class="btn btn-primary" *ngIf = "usuario&&!borrar" (click)="verMisCuentos()">Ver mis cuentos</button>
+    <button class="btn btn-primary" *ngIf = "usuario&&!borrar" (click)="verMisProductos()">Ver mis productos</button>
     <button class="btn btn-primary" *ngIf = "usuario&&borrar" (click)="regresar()">Regresar</button>
     <label for="imagen" *ngIf = "usuario&&!borrar">Imagen</label>
     <input *ngIf = "usuario&&!borrar" type="file" value="Subir Imagen" id="imagen" (change)="detectarArchivo($event)">
@@ -42,7 +55,7 @@
 <div>
   <button *ngIf = "!usuario" class="btn btn-primary" (click)="login()" >Login con Google</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="todos()">Lista Completa</button>
-  <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="primerosDiez()">Primeros 10 cuentos</button>
-  <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="ultimosDiez()">Últimos 10 cuentos</button>
+  <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="primerosDiez()">Primeros 10 productos</button>
+  <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="ultimosDiez()">Últimos 10 productos</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="logout()">Logout</button>
 </div>
