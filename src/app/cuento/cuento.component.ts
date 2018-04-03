@@ -168,15 +168,6 @@ export class CuentoComponent implements OnInit {
     });
   }
 
-  sumarFeliz(cuento: Cuento) {
-    cuento.numFeliz = cuento.numFeliz++;
-    this.BD.sumarFeliz(cuento);
-  }
-
-  sumarTriste(cuento: Cuento) {
-    cuento.numTriste = cuento.numTriste++;
-    this.BD.sumarTriste(cuento);
-  }
 
   ngOnInit() {
     this.enviar = new Cuento();

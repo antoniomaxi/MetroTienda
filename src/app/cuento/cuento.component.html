@@ -2,7 +2,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <header>
-  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido a EchaTuCuento</h1>
+  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido la MetroTienda</h1>
   <h1 *ngIf="borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Estos son tus cuentos, {{usuario.nombre}}.</h1>
 </header>
 <div class="col s12 m7" *ngFor="let cuento of cuentos">
@@ -16,10 +16,6 @@
       </div>
       <table>
         <tr>
-          <button type="button" class="btn btn-primary" (click)="sumarFeliz(cuento)">
-            <i class="material-icons">thumb_up</i> {{cuento.numFeliz}}</button>
-          <button type="button" class="btn btn-primary" (click)="sumarTriste(cuento)">
-            <i class="material-icons">thumb_down</i> {{cuento.numTriste}}</button>
           <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(cuento)">Borrar</button>
         </tr>
         <tr>
