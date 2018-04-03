@@ -53,6 +53,7 @@ export class BdService {
     if (arriba === null) {
       z = this.listaProductos.push({
         nombre: producto.nombre,
+        precio: producto.precio,
         fecha: fecha.toDateString(),
         imagenURL: '',
         usuario: temporal
@@ -61,6 +62,7 @@ export class BdService {
     else {
       z = this.listaProductos.push({
         nombre: producto.nombre,
+        precio: producto.precio,
         fecha: fecha.toDateString(),
         imagenURL: arriba.url,
         usuario: temporal
