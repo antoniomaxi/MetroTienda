@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'MetroTienda';
+  lat: number = 10.499492174813447;
+  lng: number = -66.7857438325882;
+
+  click(event) {
+    console.log(event);
+  }
 }

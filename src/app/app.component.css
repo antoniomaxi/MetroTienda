@@ -1,0 +1,10 @@
+agm-map {
+  height: 500px;
+}
+
+.mapa {
+  margin: auto;
+  width: 70%;
+  border: 3px solid white;
+  padding: 10px;
+}

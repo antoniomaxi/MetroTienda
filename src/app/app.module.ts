@@ -12,6 +12,7 @@ import { CuentoComponent } from './cuento/cuento.component';
 import {RouterModule, Routes} from '@angular/router';
 import {UploadService} from './servicios/upload.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes: Routes = [
   {path: '', component: CuentoComponent}
@@ -29,7 +30,10 @@ const appRoutes: Routes = [
     FormsModule,
     AngularFireDatabaseModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+       apiKey: 'AIzaSyCu3U2o2Ab29Brcb84wwRwruAzmU4PIrts'
+    })
   ],
   providers: [
     BdService,
