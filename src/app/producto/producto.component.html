@@ -13,7 +13,7 @@
     </div>
     <div class="card-stacked">
       <div class="card-content">
-        <p>{{producto.cuerpo}}</p>
+        <p>{{producto.nombre}}</p>
       </div>
       <table>
         <tr>
@@ -33,7 +33,7 @@
     <label *ngIf = "usuario&&!borrar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre del producto: </label>
     <label *ngIf = "!usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se requiere autentificación: </label>
     <div class="col-6">
-      <textarea *ngIf="usuario&&!borrar" class="form-control-lg" rows="6" name="cuerpo" required minlength="1" maxlength="1000" #cuerpo='ngModel' [(ngModel)] ="enviar.cuerpo"></textarea>
+      <textarea *ngIf="usuario&&!borrar" class="form-control-lg" rows="6" name="nombre" required minlength="1" maxlength="1000" #nombre='ngModel' [(ngModel)] ="enviar.nombre"></textarea>
     </div>
     <button *ngIf = "usuario&&!borrar" type="submit" class="btn btn-primary">Enviar</button>
     <button class="btn btn-primary" *ngIf = "usuario&&!borrar" (click)="verMisProductos()">Ver mis productos</button>

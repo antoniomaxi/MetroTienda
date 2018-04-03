@@ -33,8 +33,8 @@ export class ProductoComponent implements OnInit {
 
   anadirProducto(form: NgForm) {
     this.enviar = new Producto();
-    if (form.value.cuerpo !== undefined) {
-      if (form.value.cuerpo.length > 0 && form.value.cuerpo.length < 1000) {
+    if (form.value.nombre !== undefined) {
+      if (form.value.nombre.length > 0 && form.value.nombre.length < 1000) {
         if ( this.currentUpload === null ) {
           this.usuario = this.BD.insertaProducto(form.value, this.usuario, null);
         }
