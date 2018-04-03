@@ -12,7 +12,7 @@ export class BdService {
   usuario: AngularFireList<any>;
   productos: Producto[];
 
-  constructor( private fb: AngularFireDatabase) {
+  constructor(private fb: AngularFireDatabase) {
   }
 
   getProductos() {
