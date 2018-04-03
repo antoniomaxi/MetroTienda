@@ -8,20 +8,20 @@ import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
 import {BdService} from './servicios/bd.service';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { CuentoComponent } from './cuento/cuento.component';
+import { ProductoComponent } from './producto/producto.component';
 import {RouterModule, Routes} from '@angular/router';
 import {UploadService} from './servicios/upload.service';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 
 const appRoutes: Routes = [
-  {path: '', component: CuentoComponent}
+  {path: '', component: ProductoComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
-    CuentoComponent,
+    ProductoComponent,
   ],
   imports: [
     BrowserModule,

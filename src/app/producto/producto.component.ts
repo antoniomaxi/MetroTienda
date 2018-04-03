@@ -1,4 +1,4 @@
-import {Cuento} from './cuento';
+import {Producto} from './producto';
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {BdService} from '../servicios/bd.service';
@@ -11,16 +11,16 @@ import {Router} from '@angular/router';
 import {isNull} from "util";
 
 @Component({
-  selector: 'app-cuento',
-  templateUrl: './cuento.component.html',
-  styleUrls: ['./cuento.component.css'],
+  selector: 'app-producto',
+  templateUrl: './producto.component.html',
+  styleUrls: ['./producto.component.css'],
   providers: [BdService, AngularFireAuth]
 })
-export class CuentoComponent implements OnInit {
+export class ProductoComponent implements OnInit {
 
-  cuentos: Cuento[];
+  productos: Producto[];
   usuarios: Usuario[];
-  enviar: Cuento;
+  enviar: Producto;
   usuario: Usuario;
   borrar: boolean;
 
@@ -31,15 +31,15 @@ export class CuentoComponent implements OnInit {
     this.borrar = false;
   }
 
-  anadirCuento(form: NgForm) {
-    this.enviar = new Cuento();
+  anadirProducto(form: NgForm) {
+    this.enviar = new Producto();
     if (form.value.cuerpo !== undefined) {
       if (form.value.cuerpo.length > 0 && form.value.cuerpo.length < 1000) {
         if ( this.currentUpload === null ) {
-          this.usuario = this.BD.insertaCuento(form.value, this.usuario, null);
+          this.usuario = this.BD.insertaProducto(form.value, this.usuario, null);
         }
         else {
-          this.usuario = this.BD.insertaCuento(form.value, this.usuario, this.currentUpload);
+          this.usuario = this.BD.insertaProducto(form.value, this.usuario, this.currentUpload);
           this.currentUpload = null;
           this.selectedFiles = null;
         }
@@ -51,19 +51,19 @@ export class CuentoComponent implements OnInit {
   }
 
   todos() {
-    let x = this.BD.getCuentos();
+    let x = this.BD.getProductos();
     x.snapshotChanges().subscribe(item =>{
-      this.cuentos = [];
+      this.productos = [];
       item.forEach(element => {
         let y = element.payload.toJSON();
         y['$id'] = element.key;
-        this.cuentos.push(y as Cuento);
+        this.productos.push(y as Producto);
       });
     });
   }
 
-  eliminar(cuentito) {
-    this.BD.eliminarCuento(cuentito, this.usuario);
+  eliminar(prod) {
+    this.BD.eliminarProducto(prod, this.usuario);
     this.regresar();
   }
 
@@ -80,22 +80,22 @@ export class CuentoComponent implements OnInit {
     }
   }
 
-  verMisCuentos() {
+  verMisProductos() {
     this.borrar = true;
-    if (this.usuario.cuentos !== undefined ) {
-      let aux: Cuento[];
+    if (this.usuario.productos !== undefined ) {
+      let aux: Producto[];
       aux = new Array;
-      for ( let i = 0 ; this.cuentos[i] !== undefined ; i++ ) {
-        for ( let j = 0 ; this.usuario.cuentos[j] !== undefined ; j++ ) {
-          if (this.cuentos[i].$id === (this.usuario.cuentos[j])) {
-            aux.push(this.cuentos[i]);
+      for ( let i = 0 ; this.productos[i] !== undefined ; i++ ) {
+        for ( let j = 0 ; this.usuario.productos[j] !== undefined ; j++ ) {
+          if (this.productos[i].$id === (this.usuario.productos[j])) {
+            aux.push(this.productos[i]);
           }
         }
       }
-      this.cuentos = aux;
+      this.productos = aux;
     }
     else {
-      this.cuentos = null;
+      this.productos = null;
     }
   }
 
@@ -107,14 +107,14 @@ export class CuentoComponent implements OnInit {
 
   regresar() {
     this.borrar = false;
-    this.enviar = new Cuento();
-    let x = this.BD.getCuentos();
+    this.enviar = new Producto();
+    let x = this.BD.getProductos();
     x.snapshotChanges().subscribe(item =>{
-      this.cuentos = [];
+      this.productos = [];
       item.forEach(element => {
         let y = element.payload.toJSON();
         y['$id'] = element.key;
-        this.cuentos.push(y as Cuento);
+        this.productos.push(y as Producto);
       });
     });
   }
@@ -143,50 +143,50 @@ export class CuentoComponent implements OnInit {
   }
 
   primerosDiez() {
-    this.enviar = new Cuento();
+    this.enviar = new Producto();
     let x = this.BD.getPrimerosDiez();
     x.snapshotChanges().subscribe(item =>{
-      this.cuentos = [];
+      this.productos = [];
       item.forEach(element => {
         let y = element.payload.toJSON();
         y['$id'] = element.key;
-        this.cuentos.push(y as Cuento);
+        this.productos.push(y as Producto);
       });
     });
   }
 
   ultimosDiez() {
-    this.enviar = new Cuento();
+    this.enviar = new Producto();
     let x = this.BD.getUltimosDiez();
     x.snapshotChanges().subscribe(item =>{
-      this.cuentos = [];
+      this.productos = [];
       item.forEach(element => {
         let y = element.payload.toJSON();
         y['$id'] = element.key;
-        this.cuentos.push(y as Cuento);
+        this.productos.push(y as Producto);
       });
     });
   }
 
-  sumarFeliz(cuento: Cuento) {
-    cuento.numFeliz = cuento.numFeliz++;
-    this.BD.sumarFeliz(cuento);
+  sumarFeliz(producto: Producto) {
+    producto.numFeliz = producto.numFeliz++;
+    this.BD.sumarFeliz(producto);
   }
 
-  sumarTriste(cuento: Cuento) {
-    cuento.numTriste = cuento.numTriste++;
-    this.BD.sumarTriste(cuento);
+  sumarTriste(producto: Producto) {
+    producto.numTriste = producto.numTriste++;
+    this.BD.sumarTriste(producto);
   }
 
   ngOnInit() {
-    this.enviar = new Cuento();
-    let x = this.BD.getCuentos();
+    this.enviar = new Producto();
+    let x = this.BD.getProductos();
     x.snapshotChanges().subscribe(item =>{
-      this.cuentos = [];
+      this.productos = [];
       item.forEach(element => {
         let y = element.payload.toJSON();
         y['$id'] = element.key;
-        this.cuentos.push(y as Cuento);
+        this.productos.push(y as Producto);
       });
     });
   }

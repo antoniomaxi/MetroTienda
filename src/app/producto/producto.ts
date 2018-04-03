@@ -1,6 +1,6 @@
 import {Usuario} from '../usuario/usuario';
 
-export class Cuento {
+export class Producto {
   $id: string;
   cuerpo: string;
   fecha: Date;
