@@ -40,7 +40,7 @@
   </div>
 </form>
 <div>
-  <button *ngIf = "!usuario" class="btn btn-primary" (click)="patata()" >Login con Google</button>
+  <button *ngIf = "!usuario" class="btn btn-primary" (click)="login()" >Login con Google</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="todos()">Lista Completa</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="primerosDiez()">Primeros 10 cuentos</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="ultimosDiez()">Últimos 10 cuentos</button>

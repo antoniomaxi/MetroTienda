@@ -119,7 +119,7 @@ export class CuentoComponent implements OnInit {
     });
   }
 
-  patata() {
+  login() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     let x = this.BD.getUsuario(this.afAuth.auth.currentUser.uid);
     x.snapshotChanges().subscribe(item => {
