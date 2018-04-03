@@ -140,6 +140,7 @@ export class ProductoComponent implements OnInit {
 
   logout() {
     this.usuario = undefined;
+    this.afAuth.auth.signOut();
   }
 
   primerosDiez() {
