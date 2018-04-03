@@ -18,9 +18,7 @@
       </div>
       <table>
         <tr>
-
           <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(producto)">Borrar</button>
-
         </tr>
         <tr>
           <p *ngIf = "producto.usuario" class="card-content">{{producto.usuario.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{producto.fecha}}</p>
@@ -37,7 +35,6 @@
       <textarea *ngIf="usuario&&!borrar" class="form-control-lg" rows="6" name="nombre" required minlength="1" maxlength="1000" #nombre='ngModel' [(ngModel)] ="enviar.nombre"></textarea>
     </div>
     <label *ngIf = "usuario&&!borrar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precio del producto: </label>
-    <label *ngIf = "!usuario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se requiere autentificación: </label>
     <div class="col-6">
       <textarea *ngIf="usuario&&!borrar" class="form-control-lg" rows="6" name="precio" required minlength="1" #precio='ngModel' [(ngModel)] ="enviar.precio"></textarea>
     </div>
@@ -49,7 +46,7 @@
   </div>
 </form>
 <div>
-  <button *ngIf = "!usuario" class="btn btn-primary" (click)="login()" >Login con Google</button>
+  <button *ngIf = "!usuario" class="btn btn-primary" (click)="login()">Login con Google</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="todos()">Lista Completa</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="primerosDiez()">Primeros 10 productos</button>
   <button *ngIf = "usuario&&!borrar" class="btn btn-primary" (click)="ultimosDiez()">Últimos 10 productos</button>
