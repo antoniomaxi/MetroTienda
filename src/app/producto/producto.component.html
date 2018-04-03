@@ -2,13 +2,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <header>
-<<<<<<< HEAD:src/app/cuento/cuento.component.html
-  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido la MetroTienda</h1>
-  <h1 *ngIf="borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Estos son tus cuentos, {{usuario.nombre}}.</h1>
-=======
-  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido a MetroTiendaApp</h1>
+
+  <h1 *ngIf="!borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Bienvenido a MetroTienda</h1>
   <h1 *ngIf="borrar" class="flow-text">&nbsp;&nbsp;&nbsp;Estos son tus productos, {{usuario.nombre}}.</h1>
->>>>>>> PapiRich:src/app/producto/producto.component.html
 </header>
 <div class="col s12 m7" *ngFor="let producto of productos">
   <div class="card horizontal">
@@ -21,15 +17,9 @@
       </div>
       <table>
         <tr>
-<<<<<<< HEAD:src/app/cuento/cuento.component.html
+
           <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(cuento)">Borrar</button>
-=======
-          <button type="button" class="btn btn-primary" (click)="sumarFeliz(producto)">
-            <i class="material-icons">thumb_up</i> {{producto.numFeliz}}</button>
-          <button type="button" class="btn btn-primary" (click)="sumarTriste(producto)">
-            <i class="material-icons">thumb_down</i> {{producto.numTriste}}</button>
-          <button *ngIf = "borrar" type="button" class="btn btn-primary" (click)="eliminar(producto)">Borrar</button>
->>>>>>> PapiRich:src/app/producto/producto.component.html
+
         </tr>
         <tr>
           <p *ngIf = "producto.usuario" class="card-content">{{producto.usuario.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{producto.fecha}}</p>
