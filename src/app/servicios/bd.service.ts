@@ -24,8 +24,6 @@ export class BdService {
     return this.fb.list('usuarios', ref => ref.orderByChild('ident').equalTo(id));
   }
 
-
-
   generarUsuario(user, id: string) {
     this.usuario = this.fb.list('usuarios');
     this.usuario.push({
